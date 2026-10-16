@@ -1,0 +1,34 @@
+project:
+  type: default
+  output-dir: _site
+
+lang: pt-BR
+title: "O Que Torna um Vídeo Viral? Modelagem Dual, Paradoxo de Simpson e Desconfundimento de Audiência"
+subtitle: "Análise Estatística e Preditiva sobre 12.000 Vídeos em 15 Categorias Editoriais"
+author: "Tales Gomes"
+date: "2026-10-15"
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false
+
+jupyter: python3
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: true
+    toc-depth: 3
+    toc-title: "Sumário Executivo"
+    number-sections: true
+    smooth-scroll: true
+    code-fold: true
+    code-summary: "Exibir código-fonte"
+    title-block-banner: true
+    fig-dpi: 300
+    fig-align: center
+    df-print: paged
