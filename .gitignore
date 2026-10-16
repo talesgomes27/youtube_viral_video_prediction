@@ -1,0 +1,53 @@
+# Python & uv
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Secrets & Credentials
+.env
+.env.*
+*.pem
+*.key
+*credentials*.json
+
+# Raw Data & Intermediate Datasets (Arquétipo A - pre-push-sanitation.md)
+*.csv
+*.parquet
+*.feather
+*.arrow
+*.db
+*.sqlite
+*.h5
+*.hdf5
+!viral_videos.csv
+!reports/metrics/*.csv
+
+# Model Weights & Binaries
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.cbm
+*.ubj
+*.model
+
+# Quarto (Keep /_freeze/ tracked for execute: freeze: auto)
+/.quarto/
+/_site/
+index_files/
+**/*.quarto_ipynb
+
+# OS & Editor
+.DS_Store
+*.swp
+*~
