@@ -12,6 +12,12 @@ build/
 .mypy_cache/
 .ipynb_checkpoints/
 
+# Agent & Local Planning Files
+task.md
+AGENTS.md
+agent.md
+CLAUDE.md
+
 # Secrets & Credentials
 .env
 .env.*

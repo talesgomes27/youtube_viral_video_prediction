@@ -1,0 +1,50 @@
+name: Publish Quarto Report to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Set up Python and uv (condicional)
+        if: hashFiles('pyproject.toml') != ''
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies (condicional)
+        if: hashFiles('pyproject.toml') != ''
+        run: uv sync --frozen
+
+      - name: Run Linter and Automated Tests
+        if: hashFiles('pyproject.toml') != ''
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+          uv run pytest
+
+      - name: Render and Publish to gh-pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          QUARTO_PYTHON: .venv/bin/python
