@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tales Gomes">
+
+<title>O Que Torna um Vídeo Viral? Modelagem Dual, Paradoxo de Simpson e Desconfundimento de Audiência</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-18ce4314b9cdc075e59f6149f353d1f9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-0c2956787f5d0aa75dbce4664fb6b7c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">O Que Torna um Vídeo Viral? Modelagem Dual, Paradoxo de Simpson e Desconfundimento de Audiência</h1>
+            <p class="subtitle lead">Análise Estatística e Preditiva sobre 12.000 Vídeos em 15 Categorias Editoriais</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tales Gomes </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">15 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sumário Executivo</h2>
+   
+  <ul>
+  <li><a href="#contexto-de-negócio-e-hipóteses" id="toc-contexto-de-negócio-e-hipóteses" class="nav-link active" data-scroll-target="#contexto-de-negócio-e-hipóteses"><span class="header-section-number">1</span> Contexto de Negócio e Hipóteses</a>
+  <ul class="collapse">
+  <li><a href="#problema-central-e-assimetria-de-audiência" id="toc-problema-central-e-assimetria-de-audiência" class="nav-link" data-scroll-target="#problema-central-e-assimetria-de-audiência"><span class="header-section-number">1.1</span> Problema Central e Assimetria de Audiência</a></li>
+  <li><a href="#hipóteses-falsificáveis-h_1-a-h_5-e-justificativa-matemática-das-métricas" id="toc-hipóteses-falsificáveis-h_1-a-h_5-e-justificativa-matemática-das-métricas" class="nav-link" data-scroll-target="#hipóteses-falsificáveis-h_1-a-h_5-e-justificativa-matemática-das-métricas"><span class="header-section-number">1.2</span> Hipóteses Falsificáveis (<span class="math inline">\(H_1\)</span> a <span class="math inline">\(H_5\)</span>) e Justificativa Matemática das Métricas</a></li>
+  </ul></li>
+  <li><a href="#auditoria-de-dados-e-contratos-de-qualidade" id="toc-auditoria-de-dados-e-contratos-de-qualidade" class="nav-link" data-scroll-target="#auditoria-de-dados-e-contratos-de-qualidade"><span class="header-section-number">2</span> Auditoria de Dados e Contratos de Qualidade</a>
+  <ul class="collapse">
+  <li><a href="#volumetria-tipagem-e-estabilização-logarítmica-log1p" id="toc-volumetria-tipagem-e-estabilização-logarítmica-log1p" class="nav-link" data-scroll-target="#volumetria-tipagem-e-estabilização-logarítmica-log1p"><span class="header-section-number">2.1</span> Volumetria, Tipagem e Estabilização Logarítmica (<code>log1p</code>)</a></li>
+  <li><a href="#diagnóstico-de-target-e-proxy-leakage-p_80-e-sinais-pós-upload" id="toc-diagnóstico-de-target-e-proxy-leakage-p_80-e-sinais-pós-upload" class="nav-link" data-scroll-target="#diagnóstico-de-target-e-proxy-leakage-p_80-e-sinais-pós-upload"><span class="header-section-number">2.2</span> Diagnóstico de Target e Proxy Leakage (<span class="math inline">\(P_{80}\)</span> e Sinais Pós-Upload)</a></li>
+  <li><a href="#contratos-de-validação-em-tempo-de-execução-dc-01-a-dc-07" id="toc-contratos-de-validação-em-tempo-de-execução-dc-01-a-dc-07" class="nav-link" data-scroll-target="#contratos-de-validação-em-tempo-de-execução-dc-01-a-dc-07"><span class="header-section-number">2.3</span> Contratos de Validação em Tempo de Execução (<code>DC-01</code> a <code>DC-07</code>)</a></li>
+  </ul></li>
+  <li><a href="#análise-exploratória-e-engenharia-de-atributos" id="toc-análise-exploratória-e-engenharia-de-atributos" class="nav-link" data-scroll-target="#análise-exploratória-e-engenharia-de-atributos"><span class="header-section-number">3</span> Análise Exploratória e Engenharia de Atributos</a>
+  <ul class="collapse">
+  <li><a href="#distribuições-lognormais-e-fronteira-determinística-de-viralidade-figura-1" id="toc-distribuições-lognormais-e-fronteira-determinística-de-viralidade-figura-1" class="nav-link" data-scroll-target="#distribuições-lognormais-e-fronteira-determinística-de-viralidade-figura-1"><span class="header-section-number">3.1</span> Distribuições Lognormais e Fronteira Determinística de Viralidade (Figura 1)</a></li>
+  <li><a href="#decomposição-do-paradoxo-de-simpson-entre-categorias-e-duração-figura-2" id="toc-decomposição-do-paradoxo-de-simpson-entre-categorias-e-duração-figura-2" class="nav-link" data-scroll-target="#decomposição-do-paradoxo-de-simpson-entre-categorias-e-duração-figura-2"><span class="header-section-number">3.2</span> Decomposição do Paradoxo de Simpson entre Categorias e Duração (Figura 2)</a></li>
+  <li><a href="#alavancas-acionáveis-do-criador-e-neutralidade-do-agendamento-temporal-figura-3" id="toc-alavancas-acionáveis-do-criador-e-neutralidade-do-agendamento-temporal-figura-3" class="nav-link" data-scroll-target="#alavancas-acionáveis-do-criador-e-neutralidade-do-agendamento-temporal-figura-3"><span class="header-section-number">3.3</span> Alavancas Acionáveis do Criador e Neutralidade do Agendamento Temporal (Figura 3)</a></li>
+  <li><a href="#especificação-dos-regimes-de-atributos-regime-a-cold-start-vs.-regime-b-relativo" id="toc-especificação-dos-regimes-de-atributos-regime-a-cold-start-vs.-regime-b-relativo" class="nav-link" data-scroll-target="#especificação-dos-regimes-de-atributos-regime-a-cold-start-vs.-regime-b-relativo"><span class="header-section-number">3.4</span> Especificação dos Regimes de Atributos (Regime A Cold Start vs.&nbsp;Regime B Relativo)</a></li>
+  </ul></li>
+  <li><a href="#modelagem-estatística-e-machine-learning" id="toc-modelagem-estatística-e-machine-learning" class="nav-link" data-scroll-target="#modelagem-estatística-e-machine-learning"><span class="header-section-number">4</span> Modelagem Estatística e Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#protocolo-de-particionamento-estratificado-8020-e-5-fold-cross-validation" id="toc-protocolo-de-particionamento-estratificado-8020-e-5-fold-cross-validation" class="nav-link" data-scroll-target="#protocolo-de-particionamento-estratificado-8020-e-5-fold-cross-validation"><span class="header-section-number">4.1</span> Protocolo de Particionamento Estratificado (80/20) e 5-Fold Cross-Validation</a></li>
+  <li><a href="#arquitetura-tripla-regressão-logarítmica-classificação-calibrada-e-desconfundimento" id="toc-arquitetura-tripla-regressão-logarítmica-classificação-calibrada-e-desconfundimento" class="nav-link" data-scroll-target="#arquitetura-tripla-regressão-logarítmica-classificação-calibrada-e-desconfundimento"><span class="header-section-number">4.2</span> Arquitetura Tripla: Regressão Logarítmica, Classificação Calibrada e Desconfundimento</a></li>
+  <li><a href="#tabela-comparativa-multi-métrica-e-convergência-dual-no-quantil-p_80" id="toc-tabela-comparativa-multi-métrica-e-convergência-dual-no-quantil-p_80" class="nav-link" data-scroll-target="#tabela-comparativa-multi-métrica-e-convergência-dual-no-quantil-p_80"><span class="header-section-number">4.3</span> Tabela Comparativa Multi-Métrica e Convergência Dual no Quantil <span class="math inline">\(P_{80}\)</span></a></li>
+  </ul></li>
+  <li><a href="#avaliação-diagnóstico-e-explicabilidade" id="toc-avaliação-diagnóstico-e-explicabilidade" class="nav-link" data-scroll-target="#avaliação-diagnóstico-e-explicabilidade"><span class="header-section-number">5</span> Avaliação, Diagnóstico e Explicabilidade</a>
+  <ul class="collapse">
+  <li><a href="#curvas-precision-recall-e-calibração-contínua-no-conjunto-de-teste-figura-4" id="toc-curvas-precision-recall-e-calibração-contínua-no-conjunto-de-teste-figura-4" class="nav-link" data-scroll-target="#curvas-precision-recall-e-calibração-contínua-no-conjunto-de-teste-figura-4"><span class="header-section-number">5.1</span> Curvas Precision-Recall e Calibração Contínua no Conjunto de Teste (Figura 4)</a></li>
+  <li><a href="#comparação-formal-regime-a-vs.-regime-b-e-explicabilidade-ganhoshap-figura-5" id="toc-comparação-formal-regime-a-vs.-regime-b-e-explicabilidade-ganhoshap-figura-5" class="nav-link" data-scroll-target="#comparação-formal-regime-a-vs.-regime-b-e-explicabilidade-ganhoshap-figura-5"><span class="header-section-number">5.2</span> Comparação Formal Regime A vs.&nbsp;Regime B e Explicabilidade Ganho/SHAP (Figura 5)</a></li>
+  <li><a href="#balanço-de-validação-das-hipóteses-h_1-a-h_5" id="toc-balanço-de-validação-das-hipóteses-h_1-a-h_5" class="nav-link" data-scroll-target="#balanço-de-validação-das-hipóteses-h_1-a-h_5"><span class="header-section-number">5.3</span> Balanço de Validação das Hipóteses (<span class="math inline">\(H_1\)</span> a <span class="math inline">\(H_5\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#recomendações-executivas-e-plano-de-ação" id="toc-recomendações-executivas-e-plano-de-ação" class="nav-link" data-scroll-target="#recomendações-executivas-e-plano-de-ação"><span class="header-section-number">6</span> Recomendações Executivas e Plano de Ação</a>
+  <ul class="collapse">
+  <li><a href="#matriz-de-decisão-tática-para-criadores-e-plataformas" id="toc-matriz-de-decisão-tática-para-criadores-e-plataformas" class="nav-link" data-scroll-target="#matriz-de-decisão-tática-para-criadores-e-plataformas"><span class="header-section-number">6.1</span> Matriz de Decisão Tática para Criadores e Plataformas</a></li>
+  <li><a href="#protocolo-de-deploy-em-sistemas-de-recomendação-cold-start-e-limitações-do-estudo" id="toc-protocolo-de-deploy-em-sistemas-de-recomendação-cold-start-e-limitações-do-estudo" class="nav-link" data-scroll-target="#protocolo-de-deploy-em-sistemas-de-recomendação-cold-start-e-limitações-do-estudo"><span class="header-section-number">6.2</span> Protocolo de Deploy em Sistemas de Recomendação (Cold Start) e Limitações do Estudo</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="contexto-de-negócio-e-hipóteses" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="contexto-de-negócio-e-hipóteses"><span class="header-section-number">1</span> Contexto de Negócio e Hipóteses</h2>
+<p>A alocação de orçamento editorial e o desenho de sistemas de recomendação em plataformas de vídeo dependem de separar o efeito inercial da audiência acumulada pelo canal das alavancas reais de conteúdo controladas pelo criador. Na base auditada de <span class="math inline">\(12.000\)</span> vídeos distribuídos em <span class="math inline">\(15\)</span> categorias editoriais (<code>viral_videos.csv</code>), o indicador binário de viralidade (<code>viral = 1</code>) é definido deterministicamente pelo corte do percentil <span class="math inline">\(80\)</span> (<span class="math inline">\(P_{80}\)</span>) do volume de visualizações (<code>views</code>), cuja fronteira exata ocorre entre <span class="math inline">\(734.299\)</span> e <span class="math inline">\(734.379\)</span> visualizações (<span class="math inline">\(2.400\)</span> vídeos virais, taxa base de <span class="math inline">\(20,00\%\)</span>).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Síntese Executiva dos Resultados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Dominância Estrutural da Base de Inscritos (<span class="math inline">\(H_1\)</span> Confirmada):</strong> A contagem de inscritos em escala logarítmica (<span class="math inline">\(\ln(1 + \text{subscriber\_count})\)</span>) apresenta correlação de <span class="math inline">\(r = 0,8097\)</span> (<span class="math inline">\(p &lt; 10^{-300}\)</span>) com <span class="math inline">\(\ln(1 + \text{views})\)</span> e explica isoladamente <span class="math inline">\(65,56\%\)</span> da variância total (<span class="math inline">\(R^2 = 0,6556\)</span>). No modelo <code>LightGBM</code> de pré-publicação, o porte do canal concentra <span class="math inline">\(93,59\%\)</span> do ganho total de informação na regressão e <span class="math inline">\(80,09\%\)</span> na classificação.</li>
+<li><strong>Paradoxo de Simpson na Duração do Vídeo (<span class="math inline">\(H_2\)</span> Confirmada):</strong> A correlação marginal negativa entre <code>duration_sec</code> e <span class="math inline">\(\ln(1 + \text{views})\)</span> (<span class="math inline">\(r = -0,2015, p = 3,97 \times 10^{-110}\)</span>) é um artefato de confundimento por categoria. Categorias de vídeos curtos (<code>Music</code> com mediana de <span class="math inline">\(239\text{s}\)</span> e <span class="math inline">\(57,2\%\)</span> de viralidade; <code>Comedy</code> com <span class="math inline">\(297\text{s}\)</span> e <span class="math inline">\(35,2\%\)</span>) abrigam canais <span class="math inline">\(5\text{x}\)</span> a <span class="math inline">\(10\text{x}\)</span> maiores que categorias longas (<code>Travel</code>, <code>Vlog</code>). Ao normalizar pelo porte do canal (<span class="math inline">\(\ln(\text{views}/\text{subscriber\_count})\)</span>), o efeito da duração desaparece (<span class="math inline">\(r = -0,0077, p = 0,3966\)</span>).</li>
+<li><strong>Alavancas Acionáveis pelo Criador (<span class="math inline">\(H_3\)</span> Confirmada):</strong> Incluir um rosto humano na miniatura (<code>thumbnail_face = 1</code>) eleva a taxa de viralização de <span class="math inline">\(18,15\%\)</span> para <span class="math inline">\(22,78\%\)</span>, um ganho relativo de <span class="math inline">\(+25,52\%\)</span> (<span class="math inline">\(p = 9,34 \times 10^{-32}\)</span>), aumentando a razão de visualizações por inscrito em <span class="math inline">\(+24,39\%\)</span>. A densidade de indexação via <code>tags_count</code> preserva correlação positiva após o desconfundimento (<span class="math inline">\(r = +0,0549, p = 1,83 \times 10^{-9}\)</span>).</li>
+<li><strong>Neutralidade de Data e Hora de Upload (<span class="math inline">\(H_4\)</span> Confirmada):</strong> O horário de publicação (<code>upload_hour</code>, Kruskal-Wallis <span class="math inline">\(p = 0,6606\)</span>) e o dia da semana (<code>upload_day</code>, Kruskal-Wallis <span class="math inline">\(p = 0,8717\)</span>) não exercem efeito estatisticamente significativo sobre o alcance relativo.</li>
+<li><strong>Suficiência do Regime de Pré-Publicação (<span class="math inline">\(H_5\)</span> Confirmada):</strong> A adição de seis taxas relativas de engajamento pós-upload (Regime B) altera o <code>PR-AUC</code> de teste em apenas <span class="math inline">\(+0,0051\)</span> no <code>LightGBM</code> (<span class="math inline">\(0,7185 \to 0,7237\)</span>) e mantém a regressão inalterada (<code>RMSLE</code> de <span class="math inline">\(0,9584\)</span> vs.&nbsp;<span class="math inline">\(0,9578\)</span>, <span class="math inline">\(p = 0,8331\)</span>). O modelo linear regularizado (<code>LogisticRegression</code> / <code>Ridge</code>) e a <strong>Convergência Dual</strong> do <code>LGBMRegressor</code> limiarizado no quantil <span class="math inline">\(P_{80}\)</span> atingem <code>PR-AUC</code> de <span class="math inline">\(0,7383\)</span> a <span class="math inline">\(0,7409\)</span> e <code>ROC-AUC</code> de <span class="math inline">\(0,9072\)</span> a <span class="math inline">\(0,9094\)</span> já no momento do upload (<em>Cold Start</em>).</li>
+</ol>
+</div>
+</div>
+<section id="problema-central-e-assimetria-de-audiência" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="problema-central-e-assimetria-de-audiência"><span class="header-section-number">1.1</span> Problema Central e Assimetria de Audiência</h3>
+<p>Modelar métricas de atenção digital na escala original produz estimadores instáveis. O volume bruto de visualizações (<code>views</code>) varia de <span class="math inline">\(347\)</span> a <span class="math inline">\(158.516.795\)</span>, exibindo média de <span class="math inline">\(1.000.642\)</span>, mediana de <span class="math inline">\(179.680\)</span>, assimetria positiva (<em>skewness</em>) de <span class="math inline">\(+29,532\)</span> e curtose excessiva de <span class="math inline">\(1.305,18\)</span>. Uma única observação extrema na cauda direita domina a função de perda quadrática ordinária.</p>
+<p>A estabilização via transformação logarítmica natural <span class="math inline">\(y_{\text{reg}} = \ln(1 + \text{views})\)</span> corrige essa distorção estrutural. Na escala logarítmica, a distribuição converge para uma gaussiana bem comportada com média <span class="math inline">\(12,089\)</span>, desvio padrão <span class="math inline">\(1,636\)</span>, <em>skewness</em> de <span class="math inline">\(+0,053\)</span> e curtose excessiva de <span class="math inline">\(+0,080\)</span>. Fenômeno idêntico ocorre na base de inscritos (<code>subscriber_count</code>), cuja assimetria cai de <span class="math inline">\(+14,472\)</span> na escala bruta para <span class="math inline">\(+0,145\)</span> sob <span class="math inline">\(\ln(1 + \text{subscriber\_count})\)</span>.</p>
+</section>
+<section id="hipóteses-falsificáveis-h_1-a-h_5-e-justificativa-matemática-das-métricas" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="hipóteses-falsificáveis-h_1-a-h_5-e-justificativa-matemática-das-métricas"><span class="header-section-number">1.2</span> Hipóteses Falsificáveis (<span class="math inline">\(H_1\)</span> a <span class="math inline">\(H_5\)</span>) e Justificativa Matemática das Métricas</h3>
+<p>O estudo foi estruturado em torno de cinco hipóteses falsificáveis formuladas antes da estimação dos modelos supervisionados:</p>
+<ul>
+<li><strong><span class="math inline">\(H_1\)</span> (Dominância da Base de Inscritos):</strong> O porte do canal em escala logarítmica responde isoladamente por mais de <span class="math inline">\(60\%\)</span> da variância de <span class="math inline">\(\ln(1 + \text{views})\)</span> e concentra mais de <span class="math inline">\(75\%\)</span> do ganho de informação em modelos baseados em árvores.</li>
+<li><strong><span class="math inline">\(H_2\)</span> (Paradoxo de Simpson na Duração):</strong> A correlação negativa aparente entre <code>duration_sec</code> e <code>views</code> (<span class="math inline">\(r &lt; -0,18\)</span>) resulta do confundimento entre categoria editorial e tamanho do canal, anulando-se (<span class="math inline">\(|r| &lt; 0,02, p &gt; 0,05\)</span>) quando avaliada sobre o multiplicador <span class="math inline">\(\ln(\text{views}/\text{subscriber\_count})\)</span>.</li>
+<li><strong><span class="math inline">\(H_3\)</span> (Alavancas de Empacotamento do Criador):</strong> <code>thumbnail_face</code> e <code>tags_count</code> mantêm efeito positivo e estatisticamente significativo (<span class="math inline">\(p &lt; 0,001\)</span>) mesmo após remover o efeito de <code>subscriber_count</code>.</li>
+<li><strong><span class="math inline">\(H_4\)</span> (Neutralidade do Agendamento):</strong> <code>upload_hour</code> e <code>upload_day</code> não apresentam efeito significativo (<span class="math inline">\(p &gt; 0,05\)</span>) sobre o volume de visualizações ou sobre a taxa de viralidade.</li>
+<li><strong><span class="math inline">\(H_5\)</span> (Equivalência Prática entre Cold Start e Sinais Relativos Pós-Upload):</strong> A inclusão de taxas relativas de engajamento (<code>likes/views</code>, <code>comments/views</code>, <code>shares/views</code>) gera ganho preditivo marginal inferior a <span class="math inline">\(0,015\)</span> em <code>PR-AUC</code> e <code>RMSLE</code> frente ao modelo restrito a metadados de pré-upload.</li>
+</ul>
+<p>Para respeitar a geometria lognormal do volume de visualizações e a prevalência minoritária da classe positiva (<span class="math inline">\(20,0\%\)</span>), adotamos duas famílias complementares de métricas:</p>
+<ol type="1">
+<li><strong>Regressão Contínua (<span class="math inline">\(y = \ln(1 + \text{views})\)</span>):</strong> A métrica primária é o <strong>RMSLE</strong> (<em>Root Mean Squared Logarithmic Error</em>), acompanhado de <span class="math inline">\(\text{MAE}_{\ln}\)</span>, <span class="math inline">\(R^2_{\ln}\)</span> e do <strong>MdAPE</strong> (<em>Median Absolute Percentage Error</em> na escala original de visualizações). Como <span class="math inline">\(\mathbb{E}[\exp(y)] \neq \exp(\mathbb{E}[y])\)</span> sob resíduos logarítmicos com variância finita, a retransformação para o espaço de contagens aplica o estimador não-paramétrico de <em>smearing</em> de <a href="https://doi.org/10.1080/01621459.1983.10478017">Duan, 1983</a>: <span class="math display">\[\hat{V}_i = \max\left(0,\; \hat{s}_{\text{Duan}} \cdot \exp(\hat{y}_i) - 1\right), \quad \text{onde } \hat{s}_{\text{Duan}} = \frac{1}{N_{\text{tr}}} \sum_{j=1}^{N_{\text{tr}}} \exp\left(y_j - \hat{y}_j\right)\]</span></li>
+<li><strong>Classificação Binária Calibrada (<span class="math inline">\(y_{\text{bin}} = \mathbb{I}[\text{views} \ge 734.379]\)</span>):</strong> A métrica primária de ordenação é a área sob a curva de Precisão-Revocação (<strong>PR-AUC</strong> / <em>Average Precision</em>), cujo valor de referência aleatório corresponde exatamente à taxa base <span class="math inline">\(\pi = 0,2000\)</span>. Avaliamos adicionalmente <strong>ROC-AUC</strong>, <strong>Brier Score</strong> (calibração probabilística) e <strong>F1@P80</strong> (F1 avaliado no limiar <span class="math inline">\(\tau_{80}\)</span> correspondente ao percentil <span class="math inline">\(80\)</span> das probabilidades estimadas no treino, alinhando a taxa de seleção de <span class="math inline">\(20\%\)</span> à definição estrutural do alvo).</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="auditoria-de-dados-e-contratos-de-qualidade" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="auditoria-de-dados-e-contratos-de-qualidade"><span class="header-section-number">2</span> Auditoria de Dados e Contratos de Qualidade</h2>
+<p>A integridade dos dados brutos e das matrizes de atributos é assegurada programaticamente pelo módulo <code>src/youtube_viral/contracts.py</code>. Nenhuma transformação ou ajuste de hiperparâmetros ocorre antes da aprovação nos sete contratos formais (<code>DC-01</code> a <code>DC-07</code>).</p>
+<section id="volumetria-tipagem-e-estabilização-logarítmica-log1p" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="volumetria-tipagem-e-estabilização-logarítmica-log1p"><span class="header-section-number">2.1</span> Volumetria, Tipagem e Estabilização Logarítmica (<code>log1p</code>)</h3>
+<p>A célula a seguir carrega os artefatos auditados pelo pipeline e sintetiza as propriedades distributivas das variáveis numéricas na escala original e após a transformação logarítmica.</p>
+<div class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Exibir código-fonte</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df_raw <span class="op">=</span> pd.read_csv(<span class="st">"viral_videos.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"reports/metrics/summary_results.json"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> json.load(f)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>audit_rows <span class="op">=</span> []</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col, apply_log <span class="kw">in</span> [</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"views"</span>, <span class="va">False</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"views"</span>, <span class="va">True</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"subscriber_count"</span>, <span class="va">False</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"subscriber_count"</span>, <span class="va">True</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"duration_sec"</span>, <span class="va">False</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"title_length"</span>, <span class="va">False</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"tags_count"</span>, <span class="va">False</span>),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"description_length"</span>, <span class="va">False</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>]:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    vals <span class="op">=</span> df_raw[col].to_numpy(dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="ss">f"ln(1 + </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">)"</span> <span class="cf">if</span> apply_log <span class="cf">else</span> col</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> apply_log:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        vals <span class="op">=</span> np.log1p(vals)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    audit_rows.append(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Variável"</span>: label,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Média"</span>: <span class="bu">round</span>(<span class="bu">float</span>(np.mean(vals)), <span class="dv">3</span>),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Desvio Padrão"</span>: <span class="bu">round</span>(<span class="bu">float</span>(np.std(vals)), <span class="dv">3</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Mediana (P50)"</span>: <span class="bu">round</span>(<span class="bu">float</span>(np.median(vals)), <span class="dv">3</span>),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"P80"</span>: <span class="bu">round</span>(<span class="bu">float</span>(np.percentile(vals, <span class="dv">80</span>)), <span class="dv">3</span>),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Skewness"</span>: <span class="bu">round</span>(<span class="bu">float</span>(stats.skew(vals)), <span class="dv">3</span>),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Kurtosis"</span>: <span class="bu">round</span>(<span class="bu">float</span>(stats.kurtosis(vals)), <span class="dv">3</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(audit_rows)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-data-audit" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="1">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-audit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1: Auditoria distributiva das variáveis principais e verificação da fronteira determinística P80 (N = 12.000).
+</figcaption>
+<div aria-describedby="tbl-data-audit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Variável</th>
+<th data-quarto-table-cell-role="th">Média</th>
+<th data-quarto-table-cell-role="th">Desvio Padrão</th>
+<th data-quarto-table-cell-role="th">Mediana (P50)</th>
+<th data-quarto-table-cell-role="th">P80</th>
+<th data-quarto-table-cell-role="th">Skewness</th>
+<th data-quarto-table-cell-role="th">Kurtosis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>views</td>
+<td>767752.366</td>
+<td>3526761.305</td>
+<td>185268.000</td>
+<td>734315.000</td>
+<td>29.535</td>
+<td>1305.395</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>ln(1 + views)</td>
+<td>12.139</td>
+<td>1.638</td>
+<td>12.130</td>
+<td>13.507</td>
+<td>0.053</td>
+<td>0.080</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>subscriber_count</td>
+<td>1009486.692</td>
+<td>2585454.245</td>
+<td>381382.000</td>
+<td>1163044.200</td>
+<td>14.474</td>
+<td>380.807</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>ln(1 + subscriber_count)</td>
+<td>12.879</td>
+<td>1.329</td>
+<td>12.852</td>
+<td>13.967</td>
+<td>0.145</td>
+<td>0.055</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>duration_sec</td>
+<td>631.620</td>
+<td>285.814</td>
+<td>614.000</td>
+<td>874.000</td>
+<td>0.426</td>
+<td>-0.190</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>title_length</td>
+<td>54.524</td>
+<td>14.950</td>
+<td>55.000</td>
+<td>67.000</td>
+<td>-0.012</td>
+<td>-0.039</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>tags_count</td>
+<td>14.587</td>
+<td>7.741</td>
+<td>14.000</td>
+<td>21.000</td>
+<td>0.159</td>
+<td>-0.374</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>description_length</td>
+<td>508.919</td>
+<td>287.201</td>
+<td>504.000</td>
+<td>757.000</td>
+<td>0.207</td>
+<td>-0.383</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Os registros estão completos: zero células nulas, <span class="math inline">\(12.000\)</span> identificadores únicos (<code>vid_000001</code> a <code>vid_012000</code>) e todas as <span class="math inline">\(15\)</span> categorias editoriais populadas entre <span class="math inline">\(745\)</span> (<code>Food</code>) e <span class="math inline">\(844\)</span> (<code>Finance</code>) vídeos.</p>
+</section>
+<section id="diagnóstico-de-target-e-proxy-leakage-p_80-e-sinais-pós-upload" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="diagnóstico-de-target-e-proxy-leakage-p_80-e-sinais-pós-upload"><span class="header-section-number">2.2</span> Diagnóstico de Target e Proxy Leakage (<span class="math inline">\(P_{80}\)</span> e Sinais Pós-Upload)</h3>
+<p>A auditoria estatística identificou dois vetores de vazamento de informação (<em>data leakage</em>) que invalidariam qualquer modelo ingênuo construído sobre todas as colunas do arquivo CSV:</p>
+<ol type="1">
+<li><strong>Target Leakage Determinístico (<code>views</code> <span class="math inline">\(\leftrightarrow\)</span> <code>viral</code>):</strong> O máximo de visualizações entre vídeos não-virais é <span class="math inline">\(734.299\)</span>, enquanto o mínimo entre vídeos virais é <span class="math inline">\(734.379\)</span>. Como <code>viral</code> é uma função degrau exata de <code>views</code> no quantil <span class="math inline">\(P_{80}\)</span>, manter <code>views</code> (ou qualquer transformação monotônica de <code>views</code>) na matriz preditora <span class="math inline">\(X\)</span> de classificação produz separação artificial de <span class="math inline">\(100\%\)</span>.</li>
+<li><strong>Proxy Leakage em Contagens Absolutas de Engajamento (<code>likes</code>, <code>comments</code>, <code>shares</code>):</strong> No processo gerador da base, as interações foram simuladas multiplicando <code>views</code> por taxas específicas de cada categoria. Consequentemente, as contagens brutas apresentam correlação logarítmica de <span class="math inline">\(r = 0,9736\)</span> (<code>likes</code>), <span class="math inline">\(r = 0,9601\)</span> (<code>comments</code>) e <span class="math inline">\(r = 0,9495\)</span> (<code>shares</code>) com <span class="math inline">\(\ln(1 + \text{views})\)</span>. Incluir contagens brutas de engajamento em <span class="math inline">\(X\)</span> equivale a fornecer ao modelo uma cópia ruidosa da própria variável resposta. Em contrapartida, as taxas normalizadas por visualização (<code>like_rate</code>, <code>comment_rate</code>, <code>share_rate</code>) possuem correlação virtualmente nula com <span class="math inline">\(\ln(1 + \text{views})\)</span> (<span class="math inline">\(r \in [-0,0171;\, -0,0004]\)</span>), isolando o engajamento qualitativo da escala bruta de alcance.</li>
+</ol>
+</section>
+<section id="contratos-de-validação-em-tempo-de-execução-dc-01-a-dc-07" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="contratos-de-validação-em-tempo-de-execução-dc-01-a-dc-07"><span class="header-section-number">2.3</span> Contratos de Validação em Tempo de Execução (<code>DC-01</code> a <code>DC-07</code>)</h3>
+<p>O módulo <code>contracts.py</code> executa sete guardas formais antes da geração de atributos e antes do treinamento de cada estimador:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Código</th>
+<th style="text-align: left;">Regra Contratual</th>
+<th style="text-align: left;">Verificação Empírica Auditada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>DC-01</strong></td>
+<td style="text-align: left;">Volumetria e unicidade de chave primária</td>
+<td style="text-align: left;">Exatamente <span class="math inline">\(12.000\)</span> linhas, <span class="math inline">\(15\)</span> colunas e <span class="math inline">\(12.000\)</span> <code>video_id</code> distintos.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DC-02</strong></td>
+<td style="text-align: left;">Completude estrita</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> valores nulos (<code>NaN</code>/<code>None</code>) em todas as <span class="math inline">\(15\)</span> colunas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DC-03</strong></td>
+<td style="text-align: left;">Domínio fechado de variáveis categóricas</td>
+<td style="text-align: left;"><span class="math inline">\(15\)</span> categorias editoriais e <span class="math inline">\(7\)</span> dias da semana (<code>Mon</code> a <code>Sun</code>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DC-04</strong></td>
+<td style="text-align: left;">Limites físicos de metadados pré-upload</td>
+<td style="text-align: left;"><code>duration_sec</code> <span class="math inline">\(\in [30, 7184]\)</span>, <code>title_length</code> <span class="math inline">\(\in [10, 100]\)</span>, <code>upload_hour</code> <span class="math inline">\(\in [0, 23]\)</span>, <code>tags_count</code> <span class="math inline">\(\in [0, 30]\)</span>, <code>description_length</code> <span class="math inline">\(\in [0, 2000]\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DC-05</strong></td>
+<td style="text-align: left;">Consistência de engajamento e porte</td>
+<td style="text-align: left;"><code>subscriber_count</code> <span class="math inline">\(\ge 100\)</span>, <code>views</code> <span class="math inline">\(\ge 1\)</span>, <code>likes</code> <span class="math inline">\(\le\)</span> <code>views</code>, <code>comments</code> <span class="math inline">\(\le\)</span> <code>views</code> e <code>shares</code> <span class="math inline">\(\le\)</span> <code>views</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DC-06</strong></td>
+<td style="text-align: left;">Integridade da fronteira <span class="math inline">\(P_{80}\)</span> do alvo</td>
+<td style="text-align: left;">Taxa de <code>viral == 1</code> igual a <span class="math inline">\(20,00\%\)</span> e <span class="math inline">\(\max(\text{views} \mid \text{viral}=0) &lt; \min(\text{views} \mid \text{viral}=1)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DC-07</strong></td>
+<td style="text-align: left;">Bloqueio anti-leakage por regime</td>
+<td style="text-align: left;">Proíbe <code>views</code>, <code>viral</code>, <code>likes</code>, <code>comments</code> e <code>shares</code> em <span class="math inline">\(X\)</span> globalmente; bloqueia taxas pós-upload no Regime A.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="análise-exploratória-e-engenharia-de-atributos" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="análise-exploratória-e-engenharia-de-atributos"><span class="header-section-number">3</span> Análise Exploratória e Engenharia de Atributos</h2>
+<p>Seguindo os princípios de clareza visual e redução de carga cognitiva <span class="citation" data-cites="knaflic_2015">[@knaflic_2015]</span>, as cinco figuras do estudo foram projetadas em painéis duplos nivelados (<code>1x2</code>, <code>figsize=(12, 5.2)</code>, <code>dpi=300</code>, proporção de caixa quadrada <code>set_box_aspect(1)</code>), conectando cada questão de negócio à sua prova estatística.</p>
+<section id="distribuições-lognormais-e-fronteira-determinística-de-viralidade-figura-1" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="distribuições-lognormais-e-fronteira-determinística-de-viralidade-figura-1"><span class="header-section-number">3.1</span> Distribuições Lognormais e Fronteira Determinística de Viralidade (Figura 1)</h3>
+<p>A Figura 1 documenta a transição da cauda longa original para a normalidade logarítmica no Painel (a) e demonstra a acoplagem entre porte do canal, volume de visualizações e a fronteira determinística de viralidade (<span class="math inline">\(\ln(1 + 734.379) \approx 13,507\)</span>) no Painel (b).</p>
+<div id="fig-distributions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reports/figures/fig01_distributions_and_threshold.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Estabilização Logarítmica (log1p) e Fronteira Determinística de Viralidade no Quantil P80
+</figcaption>
+</figure>
+</div>
+<p>O Painel (b) confirma a Hipótese <span class="math inline">\(H_1\)</span>: a inclinação positiva acentuada reflete a correlação de <span class="math inline">\(r = 0,8097\)</span> entre <span class="math inline">\(\ln(1 + \text{subscriber\_count})\)</span> e <span class="math inline">\(\ln(1 + \text{views})\)</span>. Canais com mais de <span class="math inline">\(1\text{ milhão}\)</span> de inscritos (<span class="math inline">\(\ln(1 + \text{subs}) &gt; 13,8\)</span>) cruzam a linha horizontal de <span class="math inline">\(734.379\)</span> visualizações mesmo quando produzem vídeos com desempenho relativo abaixo da média de sua própria base.</p>
+</section>
+<section id="decomposição-do-paradoxo-de-simpson-entre-categorias-e-duração-figura-2" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="decomposição-do-paradoxo-de-simpson-entre-categorias-e-duração-figura-2"><span class="header-section-number">3.2</span> Decomposição do Paradoxo de Simpson entre Categorias e Duração (Figura 2)</h3>
+<p>Uma inspeção superficial indicaria que vídeos mais longos penalizam o alcance (<span class="math inline">\(r = -0,2015, p = 3,97 \times 10^{-110}\)</span>). A Figura 2 decompõe esse fenômeno pelas <span class="math inline">\(15\)</span> categorias editoriais.</p>
+<div id="fig-simpson" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-simpson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reports/figures/fig02_simpson_paradox_categories.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simpson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Decomposição do Paradoxo de Simpson: Confundimento por Categoria vs.&nbsp;Neutralidade da Duração
+</figcaption>
+</figure>
+</div>
+<p>O Painel (a) revela a estrutura de confundimento: <code>Music</code> (<span class="math inline">\(57,2\%\)</span> de vídeos virais) e <code>Comedy</code> (<span class="math inline">\(35,2\%\)</span>) exibem medianas de inscritos elevadas (<span class="math inline">\(2,06\text{ milhões}\)</span> e <span class="math inline">\(850\text{ mil}\)</span>) e durações curtas (<span class="math inline">\(239\text{s}\)</span> e <span class="math inline">\(297\text{s}\)</span>). No extremo oposto, <code>Vlog</code>, <code>Food</code>, <code>DIY</code>, <code>Lifestyle</code> e <code>Travel</code> apresentam taxas de viralidade entre <span class="math inline">\(6,6\%\)</span> e <span class="math inline">\(9,4\%\)</span> porque seus canais têm medianas de <span class="math inline">\(190\text{ mil}\)</span> a <span class="math inline">\(220\text{ mil}\)</span> inscritos. Quando o Painel (b) controla o efeito do canal utilizando escores padronizados (<em>Z-scores</em>), a inclinação bruta de <span class="math inline">\(r = -0,2015\)</span> colapsa para uma reta horizontal perfeita (<span class="math inline">\(r = -0,0077, p = 0,3966\)</span>). A duração do vídeo não reduz nem impulsiona o alcance orgânico por inscrito.</p>
+<div class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Exibir código-fonte</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cat_summary <span class="op">=</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    df_raw.assign(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        views_per_sub<span class="op">=</span>df_raw[<span class="st">"views"</span>] <span class="op">/</span> df_raw[<span class="st">"subscriber_count"</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        like_rate_pct<span class="op">=</span>(df_raw[<span class="st">"likes"</span>] <span class="op">/</span> df_raw[<span class="st">"views"</span>]) <span class="op">*</span> <span class="fl">100.0</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"category"</span>, as_index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        Videos<span class="op">=</span>(<span class="st">"video_id"</span>, <span class="st">"count"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        Viral_Pct<span class="op">=</span>(<span class="st">"viral"</span>, <span class="kw">lambda</span> s: <span class="bu">round</span>(<span class="bu">float</span>(s.mean() <span class="op">*</span> <span class="fl">100.0</span>), <span class="dv">1</span>)),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        Subs_Mediana<span class="op">=</span>(<span class="st">"subscriber_count"</span>, <span class="kw">lambda</span> s: <span class="bu">int</span>(np.median(s))),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        Views_Mediana<span class="op">=</span>(<span class="st">"views"</span>, <span class="kw">lambda</span> s: <span class="bu">int</span>(np.median(s))),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        Duracao_Mediana_s<span class="op">=</span>(<span class="st">"duration_sec"</span>, <span class="kw">lambda</span> s: <span class="bu">int</span>(np.median(s))),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        Views_por_Sub_Mediana<span class="op">=</span>(<span class="st">"views_per_sub"</span>, <span class="kw">lambda</span> s: <span class="bu">round</span>(<span class="bu">float</span>(np.median(s)), <span class="dv">3</span>)),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        Like_Rate_Medio_Pct<span class="op">=</span>(<span class="st">"like_rate_pct"</span>, <span class="kw">lambda</span> s: <span class="bu">round</span>(<span class="bu">float</span>(s.mean()), <span class="dv">2</span>)),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">"Viral_Pct"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    .reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>cat_summary</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-categories-simpson" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-categories-simpson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2: Perfil editorial por categoria ordenando taxa de viralidade, porte mediano do canal, duração mediana e multiplicador relativo.
+</figcaption>
+<div aria-describedby="tbl-categories-simpson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">Videos</th>
+<th data-quarto-table-cell-role="th">Viral_Pct</th>
+<th data-quarto-table-cell-role="th">Subs_Mediana</th>
+<th data-quarto-table-cell-role="th">Views_Mediana</th>
+<th data-quarto-table-cell-role="th">Duracao_Mediana_s</th>
+<th data-quarto-table-cell-role="th">Views_por_Sub_Mediana</th>
+<th data-quarto-table-cell-role="th">Like_Rate_Medio_Pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Music</td>
+<td>776</td>
+<td>57.2</td>
+<td>2057547</td>
+<td>1016084</td>
+<td>239</td>
+<td>0.456</td>
+<td>4.93</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Comedy</td>
+<td>775</td>
+<td>35.2</td>
+<td>850720</td>
+<td>408434</td>
+<td>297</td>
+<td>0.529</td>
+<td>4.91</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Sports</td>
+<td>806</td>
+<td>27.5</td>
+<td>594324</td>
+<td>294546</td>
+<td>475</td>
+<td>0.502</td>
+<td>4.84</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Gaming</td>
+<td>807</td>
+<td>24.3</td>
+<td>495660</td>
+<td>238073</td>
+<td>885</td>
+<td>0.475</td>
+<td>5.03</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Beauty</td>
+<td>817</td>
+<td>23.4</td>
+<td>465658</td>
+<td>248668</td>
+<td>547</td>
+<td>0.491</td>
+<td>5.05</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Tech</td>
+<td>824</td>
+<td>19.1</td>
+<td>398781</td>
+<td>196662</td>
+<td>602</td>
+<td>0.475</td>
+<td>5.02</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>News</td>
+<td>825</td>
+<td>18.5</td>
+<td>400053</td>
+<td>190937</td>
+<td>367</td>
+<td>0.475</td>
+<td>5.08</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>Cooking</td>
+<td>794</td>
+<td>17.1</td>
+<td>365019</td>
+<td>175921</td>
+<td>600</td>
+<td>0.464</td>
+<td>4.95</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>Finance</td>
+<td>821</td>
+<td>15.2</td>
+<td>299502</td>
+<td>163666</td>
+<td>740</td>
+<td>0.491</td>
+<td>5.07</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>DIY</td>
+<td>779</td>
+<td>13.5</td>
+<td>285334</td>
+<td>136605</td>
+<td>660</td>
+<td>0.481</td>
+<td>5.02</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>Education</td>
+<td>764</td>
+<td>12.3</td>
+<td>275011</td>
+<td>127734</td>
+<td>885</td>
+<td>0.444</td>
+<td>5.05</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>Fitness</td>
+<td>776</td>
+<td>11.5</td>
+<td>259620</td>
+<td>125837</td>
+<td>715</td>
+<td>0.468</td>
+<td>4.96</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>Science</td>
+<td>808</td>
+<td>11.0</td>
+<td>251703</td>
+<td>111468</td>
+<td>849</td>
+<td>0.437</td>
+<td>5.14</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>Travel</td>
+<td>807</td>
+<td>8.3</td>
+<td>201805</td>
+<td>89083</td>
+<td>891</td>
+<td>0.482</td>
+<td>5.06</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>Vlog</td>
+<td>821</td>
+<td>7.2</td>
+<td>198270</td>
+<td>94164</td>
+<td>706</td>
+<td>0.478</td>
+<td>5.01</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="alavancas-acionáveis-do-criador-e-neutralidade-do-agendamento-temporal-figura-3" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="alavancas-acionáveis-do-criador-e-neutralidade-do-agendamento-temporal-figura-3"><span class="header-section-number">3.3</span> Alavancas Acionáveis do Criador e Neutralidade do Agendamento Temporal (Figura 3)</h3>
+<p>Removido o confundimento do tamanho do canal, isolamos na Figura 3 os fatores controláveis pelo criador antes da publicação.</p>
+<div id="fig-levers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-levers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reports/figures/fig03_creator_levers_and_timing.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-levers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Alavancas Reais do Criador (Thumbnail Face e Tags) vs.&nbsp;Neutralidade do Horário de Upload
+</figcaption>
+</figure>
+</div>
+<p>O Painel (a) valida a Hipótese <span class="math inline">\(H_3\)</span>. Embora canais que usam rosto na miniatura (<code>thumbnail_face = 1</code>, <span class="math inline">\(40,0\%\)</span> da base) tenham porte mediano idêntico aos demais (<span class="math inline">\(\approx 381\text{k}\)</span> inscritos), sua taxa de viralidade salta de <span class="math inline">\(18,15\%\)</span> para <span class="math inline">\(22,78\%\)</span> (<span class="math inline">\(+25,52\%\)</span> relativo; teste <span class="math inline">\(t\)</span> de Welch <span class="math inline">\(t = 12,24, p = 3,47 \times 10^{-34}\)</span>; Mann-Whitney <span class="math inline">\(p = 9,34 \times 10^{-32}\)</span>). A distribuição de densidade de <code>tags_count</code> também cresce monotonicamente, elevando o multiplicador médio <span class="math inline">\(\ln(\text{views}/\text{subs})\)</span> de <span class="math inline">\(-0,78\)</span> (0 a 5 tags) para <span class="math inline">\(-0,66\)</span> (21 a 30 tags; <span class="math inline">\(r = +0,0549, p = 1,83 \times 10^{-9}\)</span>).</p>
+<p>O Painel (b) comprova a Hipótese <span class="math inline">\(H_4\)</span>: ao longo das <span class="math inline">\(24\)</span> horas do dia, a taxa de viralidade oscila dentro da banda de variação amostral em torno de <span class="math inline">\(20,0\%\)</span> (<span class="math inline">\(\chi^2 = 25,76, p = 0,3121\)</span>), e o multiplicador logarítmico permanece plano (Kruskal-Wallis <span class="math inline">\(H = 19,69, p = 0,6606\)</span>). O dia da semana apresenta comportamento igualmente nulo (Kruskal-Wallis <span class="math inline">\(H = 2,47, p = 0,8717\)</span>).</p>
+</section>
+<section id="especificação-dos-regimes-de-atributos-regime-a-cold-start-vs.-regime-b-relativo" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="especificação-dos-regimes-de-atributos-regime-a-cold-start-vs.-regime-b-relativo"><span class="header-section-number">3.4</span> Especificação dos Regimes de Atributos (Regime A Cold Start vs.&nbsp;Regime B Relativo)</h3>
+<p>Para testar formalmente a Hipótese <span class="math inline">\(H_5\)</span> sem incorrer em <em>proxy leakage</em>, o módulo <code>src/youtube_viral/features.py</code> constrói duas matrizes de atributos estritamente separadas:</p>
+<ul>
+<li><strong>Regime A (<em>Cold Start / Pré-Publicação</em>, 18 atributos):</strong> Contém os <span class="math inline">\(9\)</span> atributos originais disponíveis antes do upload (<code>category</code>, <code>subscriber_count</code>, <code>duration_sec</code>, <code>title_length</code>, <code>thumbnail_face</code>, <code>upload_hour</code>, <code>upload_day</code>, <code>tags_count</code>, <code>description_length</code>) acrescidos de <span class="math inline">\(9\)</span> transformações determinísticas de domínio: <code>log_subscriber_count</code> (<span class="math inline">\(\ln(1+\text{subs})\)</span>), <code>log_duration_sec</code> (<span class="math inline">\(\ln(1+\text{duration\_sec})\)</span>), <code>tags_per_title_char</code>, <code>desc_to_title_ratio</code>, codificação cíclica horária (<code>hour_sin</code>, <code>hour_cos</code>), indicador <code>is_weekend</code> (<code>Sat</code>/<code>Sun</code>) e flags <code>has_tags</code> e <code>has_description</code>.</li>
+<li><strong>Regime B (<em>Early Signals Relativos Pós-Upload</em>, 24 atributos):</strong> Estende o Regime A com <span class="math inline">\(6\)</span> razões adimensionais de engajamento: <code>like_rate</code> (<span class="math inline">\(\text{likes}/\text{views}\)</span>), <code>comment_rate</code> (<span class="math inline">\(\text{comments}/\text{views}\)</span>), <code>share_rate</code> (<span class="math inline">\(\text{shares}/\text{views}\)</span>), <code>engagement_rate_total</code> (<span class="math inline">\((\text{likes}+\text{comments}+\text{shares})/\text{views}\)</span>), <code>comments_per_like</code> e <code>shares_per_like</code>. Todas as contagens brutas permanecem bloqueadas pelo contrato <code>DC-07</code>.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="modelagem-estatística-e-machine-learning" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="modelagem-estatística-e-machine-learning"><span class="header-section-number">4</span> Modelagem Estatística e Machine Learning</h2>
+<section id="protocolo-de-particionamento-estratificado-8020-e-5-fold-cross-validation" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="protocolo-de-particionamento-estratificado-8020-e-5-fold-cross-validation"><span class="header-section-number">4.1</span> Protocolo de Particionamento Estratificado (80/20) e 5-Fold Cross-Validation</h3>
+<p>A base de <span class="math inline">\(12.000\)</span> vídeos foi particionada de forma determinística (<code>SEED = 42</code>) em <strong>Treino (<span class="math inline">\(N_{\text{tr}} = 9.600\)</span>, <span class="math inline">\(80\%\)</span>)</strong> e <strong>Teste Holdout (<span class="math inline">\(N_{\text{te}} = 2.400\)</span>, <span class="math inline">\(20\%\)</span>)</strong>, utilizando estratificação conjunta pela chave composta <code>category + "_" + viral</code> (<span class="math inline">\(30\)</span> estratos). Esse desenho preserva exatamente a proporção de <span class="math inline">\(20,00\%\)</span> de vídeos virais e o equilíbrio entre as <span class="math inline">\(15\)</span> categorias em ambas as partições, além de conduzir a validação cruzada interna em <span class="math inline">\(5\)</span> folds estratificados sobre o conjunto de treino.</p>
+</section>
+<section id="arquitetura-tripla-regressão-logarítmica-classificação-calibrada-e-desconfundimento" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="arquitetura-tripla-regressão-logarítmica-classificação-calibrada-e-desconfundimento"><span class="header-section-number">4.2</span> Arquitetura Tripla: Regressão Logarítmica, Classificação Calibrada e Desconfundimento</h3>
+<p>Implementamos em <code>src/youtube_viral/modeling.py</code> três frentes complementares de estimação:</p>
+<ol type="1">
+<li><strong>Frente 1 (Regressão Logarítmica de <span class="math inline">\(\ln(1 + \text{views})\)</span>):</strong> Compara um estimador <em>Baseline</em> estratificado por categoria (que prevê a média histórica de <span class="math inline">\(\ln(1 + \text{views})\)</span> da categoria no fold de treino) contra <code>Ridge</code> (<span class="math inline">\(\alpha = 1,0\)</span> com padronização <code>StandardScaler</code> e <code>OneHotEncoder</code>), <code>RandomForestRegressor</code> (<span class="math inline">\(300\)</span> árvores, <code>max_depth=12</code>) e <code>LGBMRegressor</code> (<span class="math inline">\(300\)</span> árvores, <code>learning_rate=0.05</code>, <code>num_leaves=31</code>, <code>subsample=0.8</code>, <code>colsample_bytree=0.8</code>).</li>
+<li><strong>Frente 2 (Classificação Binária Calibrada e Convergência Dual <span class="math inline">\(P_{80}\)</span>):</strong> Compara o <em>Baseline</em> empírico por categoria contra <code>LogisticRegression</code> (<span class="math inline">\(L_2\)</span>, <span class="math inline">\(C=1,0\)</span>), <code>RandomForestClassifier</code>, <code>LGBMClassifier</code> e o estimador híbrido <strong><code>LightGBM_DualRegressor</code></strong>, que utiliza a predição contínua <span class="math inline">\(\hat{y}_{\text{reg}}\)</span> do regressor LightGBM para ordenar a probabilidade de viralidade (via calibração logística univariada) e aplica o corte exato no percentil <span class="math inline">\(80\)</span> (<span class="math inline">\(\tau_{80}\)</span>).</li>
+<li><strong>Frente 3 (Modelo Desconfundido de Eficiência Orgânica):</strong> Treina um <code>LGBMRegressor</code> diretamente sobre o multiplicador logarítmico <span class="math inline">\(M = \ln(\text{views}/\text{subscriber\_count})\)</span> removendo <code>subscriber_count</code> e <code>log_subscriber_count</code> de <span class="math inline">\(X\)</span>, isolando a contribuição pura dos metadados de conteúdo.</li>
+</ol>
+</section>
+<section id="tabela-comparativa-multi-métrica-e-convergência-dual-no-quantil-p_80" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="tabela-comparativa-multi-métrica-e-convergência-dual-no-quantil-p_80"><span class="header-section-number">4.3</span> Tabela Comparativa Multi-Métrica e Convergência Dual no Quantil <span class="math inline">\(P_{80}\)</span></h3>
+<p>A tabela abaixo consolida todas as métricas de validação cruzada (5-Fold CV) e do conjunto de teste Holdout (<span class="math inline">\(N = 2.400\)</span>) para os dois regimes operacionais.</p>
+<div class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Exibir código-fonte</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_comp <span class="op">=</span> pd.read_csv(<span class="st">"reports/metrics/model_comparison.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>reg_table <span class="op">=</span> (</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    df_comp[df_comp[<span class="st">"task"</span>] <span class="op">==</span> <span class="st">"regression"</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    .loc[</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        :,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regime"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"model"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_mean"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_std"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_rmsle"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_mae_ln"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_r2_ln"</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_mdape_pct"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    .rename(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>{</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regime"</span>: <span class="st">"Regime"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"model"</span>: <span class="st">"Modelo (Regressão)"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_mean"</span>: <span class="st">"CV RMSLE (Média)"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_std"</span>: <span class="st">"CV RMSLE (DP)"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_rmsle"</span>: <span class="st">"Teste RMSLE"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_mae_ln"</span>: <span class="st">"Teste MAE (ln)"</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_r2_ln"</span>: <span class="st">"Teste R² (ln)"</span>,</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_mdape_pct"</span>: <span class="st">"Teste MdAPE (%)"</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>reg_table</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-model-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;3: Desempenho comparativo em 5-Fold CV (Treino, N = 9.600) e Teste Holdout (N = 2.400) nos Regimes A (Cold Start) e B (Pós-Upload Relativo).
+</figcaption>
+<div aria-describedby="tbl-model-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Regime</th>
+<th data-quarto-table-cell-role="th">Modelo (Regressão)</th>
+<th data-quarto-table-cell-role="th">CV RMSLE (Média)</th>
+<th data-quarto-table-cell-role="th">CV RMSLE (DP)</th>
+<th data-quarto-table-cell-role="th">Teste RMSLE</th>
+<th data-quarto-table-cell-role="th">Teste MAE (ln)</th>
+<th data-quarto-table-cell-role="th">Teste R² (ln)</th>
+<th data-quarto-table-cell-role="th">Teste MdAPE (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5</th>
+<td>A</td>
+<td>Baseline</td>
+<td>1.5242</td>
+<td>0.0104</td>
+<td>1.5269</td>
+<td>1.2183</td>
+<td>0.1438</td>
+<td>204.6422</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">6</th>
+<td>A</td>
+<td>Ridge</td>
+<td>0.9592</td>
+<td>0.0121</td>
+<td>0.9457</td>
+<td>0.7522</td>
+<td>0.6716</td>
+<td>69.9588</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">7</th>
+<td>A</td>
+<td>RandomForest</td>
+<td>0.9749</td>
+<td>0.0122</td>
+<td>0.9569</td>
+<td>0.7651</td>
+<td>0.6637</td>
+<td>69.8964</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">8</th>
+<td>A</td>
+<td>LightGBM</td>
+<td>0.9697</td>
+<td>0.0108</td>
+<td>0.9584</td>
+<td>0.7625</td>
+<td>0.6627</td>
+<td>70.0365</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>B</td>
+<td>Baseline</td>
+<td>1.5242</td>
+<td>0.0104</td>
+<td>1.5269</td>
+<td>1.2183</td>
+<td>0.1438</td>
+<td>204.6422</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>B</td>
+<td>Ridge</td>
+<td>0.9595</td>
+<td>0.0118</td>
+<td>0.9454</td>
+<td>0.7521</td>
+<td>0.6718</td>
+<td>69.9070</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">16</th>
+<td>B</td>
+<td>RandomForest</td>
+<td>0.9740</td>
+<td>0.0117</td>
+<td>0.9567</td>
+<td>0.7638</td>
+<td>0.6639</td>
+<td>69.2950</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">17</th>
+<td>B</td>
+<td>LightGBM</td>
+<td>0.9693</td>
+<td>0.0089</td>
+<td>0.9578</td>
+<td>0.7607</td>
+<td>0.6631</td>
+<td>69.2136</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Na regressão contínua, todos os estimadores supervisionados reduzem o erro logarítmico (<code>RMSLE</code>) do patamar de <span class="math inline">\(1,5269\)</span> (<em>Baseline</em> de categoria) para a faixa de <strong><span class="math inline">\(0,9454\)</span> a <span class="math inline">\(0,9584\)</span></strong> no conjunto de teste, elevando o <span class="math inline">\(R^2_{\ln}\)</span> de <span class="math inline">\(0,1438\)</span> para <strong><span class="math inline">\(0,6627\text{--}0,6718\)</span></strong> e reduzindo o erro percentual absoluto mediano (<code>MdAPE</code>, corrigido pelo fator de Duan <span class="math inline">\(\hat{s} \approx 1,54\text{--}1,56\)</span>) de <span class="math inline">\(204,64\%\)</span> para <strong><span class="math inline">\(69,21\%\text{--}70,04\%\)</span></strong>. O modelo <code>Ridge</code> apresenta ligeira vantagem sobre ensembles de árvores (<code>RMSLE</code> de <span class="math inline">\(0,9457\)</span> no Regime A e <span class="math inline">\(0,9454\)</span> no Regime B) porque a relação estrutural dominante entre <span class="math inline">\(\ln(1+\text{views})\)</span> e <span class="math inline">\(\ln(1+\text{subscriber\_count})\)</span> é genuinamente linear na escala log-log, e o efeito de <code>thumbnail_face</code> e <code>tags_count</code> entra de forma aditiva no expoente.</p>
+<div class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Exibir código-fonte</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clf_table <span class="op">=</span> (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    df_comp[df_comp[<span class="st">"task"</span>] <span class="op">==</span> <span class="st">"classification"</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    .loc[</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        :,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regime"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"model"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_mean"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_std"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_pr_auc"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_roc_auc"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_f1_p80"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_f1_050"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_brier"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    .rename(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>{</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regime"</span>: <span class="st">"Regime"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"model"</span>: <span class="st">"Modelo (Classificação)"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_mean"</span>: <span class="st">"CV PR-AUC (Média)"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cv_primary_std"</span>: <span class="st">"CV PR-AUC (DP)"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_pr_auc"</span>: <span class="st">"Teste PR-AUC"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_roc_auc"</span>: <span class="st">"Teste ROC-AUC"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_f1_p80"</span>: <span class="st">"Teste F1@P80"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_f1_050"</span>: <span class="st">"Teste F1@0.50"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"test_brier"</span>: <span class="st">"Teste Brier"</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>clf_table</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-clf-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-clf-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4: Métricas de Classificação Binária (viral = top 20%) em 5-Fold CV e Teste Holdout (N = 2.400).
+</figcaption>
+<div aria-describedby="tbl-clf-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Regime</th>
+<th data-quarto-table-cell-role="th">Modelo (Classificação)</th>
+<th data-quarto-table-cell-role="th">CV PR-AUC (Média)</th>
+<th data-quarto-table-cell-role="th">CV PR-AUC (DP)</th>
+<th data-quarto-table-cell-role="th">Teste PR-AUC</th>
+<th data-quarto-table-cell-role="th">Teste ROC-AUC</th>
+<th data-quarto-table-cell-role="th">Teste F1@P80</th>
+<th data-quarto-table-cell-role="th">Teste F1@0.50</th>
+<th data-quarto-table-cell-role="th">Teste Brier</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>A</td>
+<td>Baseline</td>
+<td>0.3666</td>
+<td>0.0006</td>
+<td>0.3671</td>
+<td>0.6906</td>
+<td>0.4090</td>
+<td>0.2794</td>
+<td>0.1453</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>A</td>
+<td>LogisticRegression</td>
+<td>0.7357</td>
+<td>0.0176</td>
+<td>0.7407</td>
+<td>0.9086</td>
+<td>0.6701</td>
+<td>0.6397</td>
+<td>0.0910</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>A</td>
+<td>RandomForest</td>
+<td>0.7202</td>
+<td>0.0189</td>
+<td>0.7265</td>
+<td>0.9056</td>
+<td>0.6660</td>
+<td>0.6321</td>
+<td>0.0924</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>A</td>
+<td>LightGBM</td>
+<td>0.7234</td>
+<td>0.0190</td>
+<td>0.7185</td>
+<td>0.9048</td>
+<td>0.6493</td>
+<td>0.6274</td>
+<td>0.0937</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>A</td>
+<td>LightGBM_DualRegressor</td>
+<td>0.7329</td>
+<td>0.0171</td>
+<td>0.7383</td>
+<td>0.9072</td>
+<td>0.6639</td>
+<td>0.6189</td>
+<td>0.0929</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>B</td>
+<td>Baseline</td>
+<td>0.3666</td>
+<td>0.0006</td>
+<td>0.3671</td>
+<td>0.6906</td>
+<td>0.4090</td>
+<td>0.2794</td>
+<td>0.1453</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>B</td>
+<td>LogisticRegression</td>
+<td>0.7351</td>
+<td>0.0180</td>
+<td>0.7402</td>
+<td>0.9087</td>
+<td>0.6701</td>
+<td>0.6405</td>
+<td>0.0911</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>B</td>
+<td>RandomForest</td>
+<td>0.7196</td>
+<td>0.0209</td>
+<td>0.7224</td>
+<td>0.9034</td>
+<td>0.6576</td>
+<td>0.6357</td>
+<td>0.0930</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>B</td>
+<td>LightGBM</td>
+<td>0.7272</td>
+<td>0.0192</td>
+<td>0.7237</td>
+<td>0.9060</td>
+<td>0.6576</td>
+<td>0.6234</td>
+<td>0.0935</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>B</td>
+<td>LightGBM_DualRegressor</td>
+<td>0.7345</td>
+<td>0.0175</td>
+<td>0.7409</td>
+<td>0.9094</td>
+<td>0.6576</td>
+<td>0.6272</td>
+<td>0.0922</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Por que a Convergência Dual (<code>LightGBM_DualRegressor</code>) supera o Classificador Direto?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quando treinamos o <code>LGBMClassifier</code> diretamente sobre o rótulo binário <code>viral</code>, um vídeo com <span class="math inline">\(730.000\)</span> visualizações (<code>viral = 0</code>) recebe exatamente a mesma perda nominal que um vídeo com <span class="math inline">\(500\)</span> visualizações (<code>viral = 0</code>), descartando a informação de distância até a fronteira de <span class="math inline">\(734.379\)</span>. Já o <strong><code>LightGBM_DualRegressor</code></strong> preserva a resolução métrica completa de <span class="math inline">\(\ln(1 + \text{views})\)</span> durante o ajuste das árvores e aplica a discretização apenas na etapa de decisão (<span class="math inline">\(\hat{y} \ge \tau_{80} = 13,2225\)</span>). O resultado no conjunto de teste do Regime A é um salto de <code>PR-AUC</code> de <strong><span class="math inline">\(0,7185\)</span> para <span class="math inline">\(0,7383\)</span></strong> (<span class="math inline">\(+0,0198\)</span>) e de <code>F1@P80</code> de <strong><span class="math inline">\(0,6493\)</span> para <span class="math inline">\(0,6639\)</span></strong>, igualando a performance do modelo paramétrico campeão (<code>LogisticRegression</code>, <code>PR-AUC = 0,7407</code> e <code>F1@P80 = 0,6701</code>).</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="avaliação-diagnóstico-e-explicabilidade" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="avaliação-diagnóstico-e-explicabilidade"><span class="header-section-number">5</span> Avaliação, Diagnóstico e Explicabilidade</h2>
+<section id="curvas-precision-recall-e-calibração-contínua-no-conjunto-de-teste-figura-4" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="curvas-precision-recall-e-calibração-contínua-no-conjunto-de-teste-figura-4"><span class="header-section-number">5.1</span> Curvas Precision-Recall e Calibração Contínua no Conjunto de Teste (Figura 4)</h3>
+<p>A Figura 4 ilustra o desempenho dos modelos de pré-publicação (Regime A) no conjunto de teste Holdout (<span class="math inline">\(N = 2.400\)</span>, sendo <span class="math inline">\(481\)</span> vídeos virais).</p>
+<div id="fig-performance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-performance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reports/figures/fig04_dual_modeling_performance.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-performance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Avaliação no Conjunto de Teste (Regime A): Curvas Precision-Recall e Predição Contínua Logarítmica
+</figcaption>
+</figure>
+</div>
+<p>No Painel (a), todas as curvas supervisionadas sustentam precisão acima de <span class="math inline">\(85\%\)</span> até <span class="math inline">\(40\%\)</span> de revocação e convergem no ponto operacional <code>F1@P80</code> com precisão e revocação equilibradas em <strong><span class="math inline">\(66,5\%\text{--}67,1\%\)</span></strong> (contra <span class="math inline">\(36,0\%\)</span> de precisão do baseline de categoria). No Painel (b), as predições contínuas do <code>LGBMRegressor</code> acompanham a diagonal de calibração perfeita <span class="math inline">\(y = \hat{y}\)</span> ao longo de cinco ordens de grandeza, e a linha tracejada horizontal (<span class="math inline">\(\tau_{80} = 13,22\)</span>) separa com nitidez o quadrante superior direito de vídeos virais.</p>
+</section>
+<section id="comparação-formal-regime-a-vs.-regime-b-e-explicabilidade-ganhoshap-figura-5" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="comparação-formal-regime-a-vs.-regime-b-e-explicabilidade-ganhoshap-figura-5"><span class="header-section-number">5.2</span> Comparação Formal Regime A vs.&nbsp;Regime B e Explicabilidade Ganho/SHAP (Figura 5)</h3>
+<p>Para auditar o comportamento interno do <code>LightGBM</code> sem distorções de cardinalidade de árvores, extraímos tanto o ganho percentual de redução de perda (<code>importance_type="gain"</code>) quanto os valores exatos de contribuição marginal <code>TreeSHAP</code> (<a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">Lundberg &amp; Lee, 2017</a>) sobre o conjunto de teste. A Figura 5 sintetiza o ranking de explicabilidade no Regime A e o contraste direto com o Regime B.</p>
+<div id="fig-importance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reports/figures/fig05_scenario_a_vs_b_importance.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Explicabilidade por Ganho de Informação (Gain %) e Comparação Regime A vs.&nbsp;Regime B
+</figcaption>
+</figure>
+</div>
+<p>Os números exatos exportados pelo pipeline confirmam visual e analiticamente a estrutura do problema:</p>
+<div class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Exibir código-fonte</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>imp_a_reg <span class="op">=</span> pd.DataFrame(summary[<span class="st">"feature_importance"</span>][<span class="st">"A_regression_gain"</span>]).head(<span class="dv">10</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>imp_a_dec <span class="op">=</span> pd.DataFrame(summary[<span class="st">"feature_importance"</span>][<span class="st">"A_deconfounded_multiplier_gain"</span>]).head(<span class="dv">10</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>comparison_imp <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Rank"</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Atributo (Regime A - Volume)"</span>: imp_a_reg[<span class="st">"feature"</span>],</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Gain % (Volume)"</span>: imp_a_reg[<span class="st">"gain_pct"</span>].<span class="bu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"|SHAP| Médio (Volume)"</span>: imp_a_reg[<span class="st">"mean_abs_shap"</span>].<span class="bu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Atributo (Desconfundido - Views/Sub)"</span>: imp_a_dec[<span class="st">"feature"</span>],</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Gain % (Views/Sub)"</span>: imp_a_dec[<span class="st">"gain_pct"</span>].<span class="bu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"|SHAP| Médio (Views/Sub)"</span>: imp_a_dec[<span class="st">"mean_abs_shap"</span>].<span class="bu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>comparison_imp</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-feature-importance" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="5">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-feature-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;5: Top 10 atributos por Ganho de Informação (Gain %) e magnitude média TreeSHAP nos três modelos LightGBM.
+</figcaption>
+<div aria-describedby="tbl-feature-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe cell caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rank</th>
+<th data-quarto-table-cell-role="th">Atributo (Regime A - Volume)</th>
+<th data-quarto-table-cell-role="th">Gain % (Volume)</th>
+<th data-quarto-table-cell-role="th">|SHAP| Médio (Volume)</th>
+<th data-quarto-table-cell-role="th">Atributo (Desconfundido - Views/Sub)</th>
+<th data-quarto-table-cell-role="th">Gain % (Views/Sub)</th>
+<th data-quarto-table-cell-role="th">|SHAP| Médio (Views/Sub)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>subscriber_count</td>
+<td>66.89</td>
+<td>0.7774</td>
+<td>category</td>
+<td>16.58</td>
+<td>0.0246</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2</td>
+<td>log_subscriber_count</td>
+<td>26.70</td>
+<td>0.2575</td>
+<td>thumbnail_face</td>
+<td>14.62</td>
+<td>0.0955</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>3</td>
+<td>category</td>
+<td>1.21</td>
+<td>0.0303</td>
+<td>desc_to_title_ratio</td>
+<td>10.30</td>
+<td>0.0154</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>4</td>
+<td>tags_per_title_char</td>
+<td>0.73</td>
+<td>0.0209</td>
+<td>title_length</td>
+<td>9.85</td>
+<td>0.0201</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>5</td>
+<td>thumbnail_face</td>
+<td>0.71</td>
+<td>0.0972</td>
+<td>description_length</td>
+<td>8.68</td>
+<td>0.0107</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>6</td>
+<td>duration_sec</td>
+<td>0.62</td>
+<td>0.0161</td>
+<td>tags_count</td>
+<td>8.04</td>
+<td>0.0321</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>7</td>
+<td>desc_to_title_ratio</td>
+<td>0.58</td>
+<td>0.0191</td>
+<td>tags_per_title_char</td>
+<td>7.92</td>
+<td>0.0177</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>8</td>
+<td>title_length</td>
+<td>0.55</td>
+<td>0.0240</td>
+<td>duration_sec</td>
+<td>7.40</td>
+<td>0.0117</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>9</td>
+<td>tags_count</td>
+<td>0.49</td>
+<td>0.0360</td>
+<td>upload_day</td>
+<td>5.05</td>
+<td>0.0075</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>10</td>
+<td>description_length</td>
+<td>0.43</td>
+<td>0.0164</td>
+<td>upload_hour</td>
+<td>4.89</td>
+<td>0.0131</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>A leitura conjunta da Figura 5 e da Tabela 4 esclarece dois mecanismos centrais:</p>
+<ol type="1">
+<li><strong>Hierarquia no Volume Absoluto (Regime A):</strong> <code>subscriber_count</code> (<span class="math inline">\(66,89\%\)</span> do ganho; <span class="math inline">\(|\text{SHAP}| = 0,7774\)</span>) e <code>log_subscriber_count</code> (<span class="math inline">\(26,70\%\)</span> do ganho; <span class="math inline">\(|\text{SHAP}| = 0,2575\)</span>) totalizam <strong><span class="math inline">\(93,59\%\)</span></strong> de toda a redução de erro quadrático logarítmico. Entre os metadados de conteúdo, destacam-se <code>category</code> (<span class="math inline">\(1,21\%\)</span>), <code>tags_per_title_char</code> (<span class="math inline">\(0,73\%\)</span>) e <code>thumbnail_face</code> (<span class="math inline">\(0,71\%\)</span> do ganho em splits, mas o <strong>3º maior impacto local TreeSHAP</strong> com <span class="math inline">\(|\text{SHAP}| = 0,0972\)</span>, superando <code>category</code> em impacto por vídeo individual).</li>
+<li><strong>Hierarquia Desconfundida (<span class="math inline">\(\ln(\text{views}/\text{subscriber\_count})\)</span>) e Sinais Pós-Upload (Regime B):</strong> Quando removemos a base de inscritos na Frente 3, as alavancas de conteúdo assumem o protagonismo na exata ordem de sua relevância criativa: <code>category</code> (<span class="math inline">\(16,58\%\)</span>), <code>thumbnail_face</code> (<span class="math inline">\(14,62\%\)</span>, líder absoluto em <span class="math inline">\(|\text{SHAP}|\)</span> com <span class="math inline">\(0,0955\)</span>), <code>desc_to_title_ratio</code> (<span class="math inline">\(10,30\%\)</span>), <code>title_length</code> (<span class="math inline">\(9,85\%\)</span>), <code>description_length</code> (<span class="math inline">\(8,68\%\)</span>) e <code>tags_count</code> (<span class="math inline">\(8,04\%\)</span>, 2º maior <span class="math inline">\(|\text{SHAP}|\)</span> com <span class="math inline">\(0,0321\)</span>). Já no Regime B, todas as <span class="math inline">\(6\)</span> variáveis de taxas de engajamento combinadas (<code>shares_per_like</code>, <code>comment_rate</code>, <code>comments_per_like</code>, <code>share_rate</code>, <code>like_rate</code>, <code>engagement_rate_total</code>) somam apenas <strong><span class="math inline">\(2,47\%\)</span></strong> do ganho total na regressão e <strong><span class="math inline">\(9,08\%\)</span></strong> na classificação, resultando em ganho líquido de teste estatisticamente indistinguível na regressão (<span class="math inline">\(\Delta \text{RMSLE} = -0,0006, p = 0,8331\)</span>) e residual na classificação (<span class="math inline">\(\Delta \text{PR-AUC} = +0,0051\)</span>).</li>
+</ol>
+</section>
+<section id="balanço-de-validação-das-hipóteses-h_1-a-h_5" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="balanço-de-validação-das-hipóteses-h_1-a-h_5"><span class="header-section-number">5.3</span> Balanço de Validação das Hipóteses (<span class="math inline">\(H_1\)</span> a <span class="math inline">\(H_5\)</span>)</h3>
+<p>A tabela a seguir encerra o ciclo de avaliação mapeando 1:1 cada hipótese da Seção 1 às provas empíricas obtidas.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Hipótese</th>
+<th style="text-align: left;">Enunciado Resumido</th>
+<th style="text-align: left;">Estatística / Prova Empírica</th>
+<th style="text-align: left;">Decisão</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><span class="math inline">\(H_1\)</span></strong></td>
+<td style="text-align: left;">Dominância estrutural de <code>subscriber_count</code></td>
+<td style="text-align: left;"><span class="math inline">\(r = 0,8097\)</span>, <span class="math inline">\(R^2_{\text{univariado}} = 0,6556\)</span>; <span class="math inline">\(93,59\%\)</span> do <code>gain</code> na regressão e <span class="math inline">\(80,09\%\)</span> na classificação.</td>
+<td style="text-align: left;"><strong>Confirmada</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><span class="math inline">\(H_2\)</span></strong></td>
+<td style="text-align: left;">Paradoxo de Simpson em <code>duration_sec</code></td>
+<td style="text-align: left;"><span class="math inline">\(r_{\text{marginal}} = -0,2015\)</span> (<span class="math inline">\(p &lt; 10^{-109}\)</span>) cai para <span class="math inline">\(r_{\text{desconfundido}} = -0,0077\)</span> (<span class="math inline">\(p = 0,3966\)</span>).</td>
+<td style="text-align: left;"><strong>Confirmada</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><span class="math inline">\(H_3\)</span></strong></td>
+<td style="text-align: left;">Efeito real de <code>thumbnail_face</code> e <code>tags_count</code></td>
+<td style="text-align: left;"><code>thumbnail_face</code>: <span class="math inline">\(+25,52\%\)</span> na taxa viral (<span class="math inline">\(p = 3,47 \times 10^{-34}\)</span>); <code>tags_count</code>: <span class="math inline">\(r = +0,0549\)</span> (<span class="math inline">\(p = 1,83 \times 10^{-9}\)</span>).</td>
+<td style="text-align: left;"><strong>Confirmada</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><span class="math inline">\(H_4\)</span></strong></td>
+<td style="text-align: left;">Neutralidade de <code>upload_hour</code> e <code>upload_day</code></td>
+<td style="text-align: left;">Hora: Kruskal-Wallis <span class="math inline">\(p = 0,6606\)</span>, <span class="math inline">\(\chi^2 p = 0,3121\)</span>; Dia: Kruskal-Wallis <span class="math inline">\(p = 0,8717\)</span>, <span class="math inline">\(\chi^2 p = 0,6355\)</span>.</td>
+<td style="text-align: left;"><strong>Confirmada</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><span class="math inline">\(H_5\)</span></strong></td>
+<td style="text-align: left;">Suficiência do Regime A (<em>Cold Start</em>) vs.&nbsp;Regime B</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta \text{PR-AUC} = +0,0051\)</span> e <span class="math inline">\(\Delta \text{RMSLE} = -0,0006\)</span> (<span class="math inline">\(p = 0,8331\)</span>); taxas relativas somam <span class="math inline">\(2,47\%\)</span> do ganho na regressão.</td>
+<td style="text-align: left;"><strong>Confirmada</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="recomendações-executivas-e-plano-de-ação" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="recomendações-executivas-e-plano-de-ação"><span class="header-section-number">6</span> Recomendações Executivas e Plano de Ação</h2>
+<p>A tradução das evidências estatísticas e dos modelos auditados em políticas operacionais direciona três decisões imediatas para equipes de conteúdo e engenharia de recomendação.</p>
+<section id="matriz-de-decisão-tática-para-criadores-e-plataformas" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="matriz-de-decisão-tática-para-criadores-e-plataformas"><span class="header-section-number">6.1</span> Matriz de Decisão Tática para Criadores e Plataformas</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Alavanca / Sistema</th>
+<th style="text-align: left;">Ação Recomendada</th>
+<th style="text-align: left;">Impacto Quantificado nos Dados</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Design de Miniaturas (<code>thumbnail_face</code>)</strong></td>
+<td style="text-align: left;">Padronizar a inclusão de rosto humano expressivo nas miniaturas em todas as categorias editoriais antes do upload.</td>
+<td style="text-align: left;">Elevação média de <strong><span class="math inline">\(-0,8280 \to -0,6097\)</span></strong> em <span class="math inline">\(\ln(\text{views}/\text{subs})\)</span> (<strong><span class="math inline">\(+24,4\%\)</span></strong> em visualizações por inscrito) e salto de <strong><span class="math inline">\(18,15\% \to 22,78\%\)</span></strong> na probabilidade de atingir o top 20%.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Indexação Semântica (<code>tags_count</code>)</strong></td>
+<td style="text-align: left;">Preencher entre <span class="math inline">\(20\)</span> e <span class="math inline">\(30\)</span> tags descritivas e manter razão equilibrada entre título e descrição (<code>tags_per_title_char</code>).</td>
+<td style="text-align: left;">Segundo maior contribuidor individual <code>TreeSHAP</code> (<span class="math inline">\(|\text{SHAP}| = 0,0321\)</span>) no multiplicador de alcance orgânico (<span class="math inline">\(r = +0,0549, p = 1,83 \times 10^{-9}\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Duração (<code>duration_sec</code>) e Agendamento (<code>upload_hour</code>/<code>day</code>)</strong></td>
+<td style="text-align: left;">Eliminar cortes artificiais de duração e restrições de horário/dia de publicação no calendário editorial.</td>
+<td style="text-align: left;">Duração não possui efeito real sobre visualizações por inscrito (<span class="math inline">\(r = -0,0077, p = 0,3966\)</span>) e horários/dias têm efeito nulo (<span class="math inline">\(p &gt; 0,31\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Benchmarking de Canais (Desconfundimento)</strong></td>
+<td style="text-align: left;">Substituir metas de visualizações brutas pelo índice ajustado <span class="math inline">\(M = \ln(\text{views}/\text{subscriber\_count})\)</span> segmentado por categoria.</td>
+<td style="text-align: left;">Evita penalizar categorias de nicho (<code>Vlog</code>, <code>Travel</code>) ou premiar falsamente canais gigantes em categorias de alta rotatividade (<code>Music</code>, <code>Comedy</code>).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="protocolo-de-deploy-em-sistemas-de-recomendação-cold-start-e-limitações-do-estudo" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="protocolo-de-deploy-em-sistemas-de-recomendação-cold-start-e-limitações-do-estudo"><span class="header-section-number">6.2</span> Protocolo de Deploy em Sistemas de Recomendação (Cold Start) e Limitações do Estudo</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Arquitetura Recomendada para Produção (<em>Cold Start Scoring</em>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Inferência no Instante Zero (<code>t = 0</code>):</strong> Implantar o par <strong><code>Ridge</code> / <code>LogisticRegression</code></strong> ou o <strong><code>LightGBM_DualRegressor</code></strong> operando exclusivamente sob o <strong>Regime A (Cold Start)</strong> no momento da ingestão do vídeo. Como o Regime A alcança <code>PR-AUC = 0,7407</code> (<code>LogisticRegression</code>) e <code>0,7383</code> (<code>LightGBM_DualRegressor</code>), aguardar a coleta de taxas de engajamento pós-upload (<code>Regime B</code>, <code>PR-AUC = 0,7409</code>) não justifica o atraso de latência operacional.</li>
+<li><strong>Regra de Decisão Calibrada no Quantil <span class="math inline">\(P_{80}\)</span>:</strong> Utilizar o limiar calibrado <span class="math inline">\(\tau_{80}\)</span> (<span class="math inline">\(p \ge 0,4028\)</span> no classificador logístico ou <span class="math inline">\(\hat{y}_{\text{reg}} \ge 13,2225\)</span> no regressor dual) em vez do corte ingênuo de <span class="math inline">\(0,50\)</span>. Essa escolha eleva o F1-Score de <span class="math inline">\(0,6397\)</span> para <strong><span class="math inline">\(0,6701\)</span></strong> e garante precisão de <strong><span class="math inline">\(67,08\%\)</span></strong> com revocação de <strong><span class="math inline">\(66,94\%\)</span></strong> na fila de priorização promocional.</li>
+<li><strong>Blindagem Contínua via Contratos (<code>DC-01</code> a <code>DC-07</code>):</strong> Manter a chamada <code>assert_no_leakage(X, regime="A")</code> acoplada ao pipeline de inferência para impedir a introdução acidental de contagens brutas de interação em atualizações futuras de schema.</li>
+</ol>
+</div>
+</div>
+<p><strong>Limitações Metodológicas e Escopo de Generalização:</strong></p>
+<ul>
+<li><strong>Natureza Sintética e Estacionária da Base:</strong> Os <span class="math inline">\(12.000\)</span> registros provêm de um gerador paramétrico estacionário sem choques externos de tendência, sazonalidade de calendário ou efeitos de rede cruzada entre vídeos. Em dados reais de produção, a velocidade de crescimento nas primeiras duas horas pós-upload (<span class="math inline">\(\Delta \text{views}/\Delta t\)</span>) contém sinal adicional que deve ser monitorado em janelas temporais estritas (<em>Out-of-Time Validation</em>).</li>
+<li><strong>Teto Explicativo dos Metadados Tabulares sem Inscritos:</strong> Conforme demonstrado pelo modelo desconfundido da Frente 3 (<code>R²</code> de <span class="math inline">\(0,0046\)</span> e <code>RMSLE</code> de <span class="math inline">\(0,9500\)</span> sobre <span class="math inline">\(\ln(\text{views}/\text{subs})\)</span>), metadados superficiais de empacotamento (<code>thumbnail_face</code>, <code>tags_count</code>, comprimentos de texto e categoria) capturam efeitos direcionais altamente significativos (<span class="math inline">\(p &lt; 10^{-30}\)</span>), mas a maior parte da variância residual por inscrito depende da qualidade intrínseca do conteúdo audiovisual e da retenção de público (<em>watch time</em>), variáveis ausentes neste schema tabular.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
