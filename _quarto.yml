@@ -1,6 +1,8 @@
 project:
-  type: default
+  type: website
   output-dir: _site
+  render:
+    - index.qmd
 
 lang: pt-BR
 title: "O Que Torna um Vídeo Viral? Modelagem Dual, Paradoxo de Simpson e Desconfundimento de Audiência"
