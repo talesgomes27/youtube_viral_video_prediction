@@ -14,9 +14,7 @@ A branch `main` é a linha de base de produção e publicação deste repositór
 | **Require status checks to pass** | `Sim` | Bloqueia mesclagem se os testes ou linter falharem. |
 | **Required check (Job de CI)** | `build-and-publish` | Nome do job executado em `.github/workflows/publish.yml`. |
 | **Require branches to be up to date** | `Sim` | Exige branch atualizada com a `main` antes do merge. |
-| **Require pull request before merging** | `Sim` | Impede commits diretos na `main`. |
-| **Required approving review count** | `1` | Exige no mínimo 1 aprovação formal de revisão. |
-| **Dismiss stale reviews** | `Sim` | Invalida aprovações quando novos commits são enviados ao PR. |
+| **Require pull request reviews** | `Opcional / Desativado` | Em repositórios com mantenedor único, o GitHub impede autoaprovação. |
 | **Do not allow bypassing (Enforce Admins)** | `Sim` | Aplica as mesmas regras aos administradores do repositório. |
 | **Allow force pushes** | `Não` | Bloqueia regravação de histórico (`git push --force`). |
 | **Allow deletions** | `Não` | Impede a exclusão acidental da branch `main`. |
