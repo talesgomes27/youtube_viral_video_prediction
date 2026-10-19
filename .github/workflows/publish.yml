@@ -3,6 +3,8 @@ name: Publish Quarto Report to GitHub Pages
 on:
   push:
     branches: [main, master]
+  pull_request:
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -41,7 +43,15 @@ jobs:
           uv run ruff format --check .
           uv run pytest
 
-      - name: Render and Publish to gh-pages
+      - name: Render Quarto Report (PR validation)
+        if: github.event_name == 'pull_request'
+        run: |
+          quarto render
+        env:
+          QUARTO_PYTHON: .venv/bin/python
+
+      - name: Render and Publish to gh-pages (Deploy on push)
+        if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages

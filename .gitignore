@@ -53,6 +53,9 @@ CLAUDE.md
 index_files/
 **/*.quarto_ipynb
 
+# Quarto freeze artifacts (preserva _freeze/index/ para freeze: auto e ignora site_libs efemero)
+_freeze/site_libs/
+
 # OS & Editor
 .DS_Store
 *.swp
