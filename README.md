@@ -115,4 +115,4 @@ O relatório interativo compilado será gravado em `_site/index.html`.
 
 ## Licença
 
-Distribuído sob domínio público (CC0 1.0 Universal), acompanhando o licenciamento original da base de dados sintética.
+Distribuído sob os termos da licença MIT. Veja [LICENSE](LICENSE).

@@ -4,6 +4,12 @@ Todas as mudanças relevantes deste projeto são documentadas neste arquivo.
 
 O formato segue o padrão [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e este projeto adota o [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [Unreleased]
+
+### Added
+
+- Licença MIT (`LICENSE`) e metadados SPDX no `pyproject.toml`.
+
 ## [0.1.0] - 2026-10-15
 
 ### Adicionado
